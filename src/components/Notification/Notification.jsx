@@ -20,12 +20,14 @@ export const Notification = (message, type= 'success', title = null)=>{
     type,
     insert: "top",
     container: "bottom-right",
-    pauseOnHover: true,
     animationIn: ["animate__animated", "animate__bounceInRight"],
     animationOut: ["animate__animated", "animate__fadeOut"],
     dismiss: {
       duration: 6000,
-      onScreen: true
-    }
+      onScreen: true,
+      pauseOnHover: true,
+      showIcon:true,
+    },
+
   });
 }
