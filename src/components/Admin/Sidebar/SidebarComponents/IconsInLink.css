@@ -1,0 +1,20 @@
+.menu-add-btn:hover{
+  /* color:red;  */
+  /* font-weight: bold; */
+  /* background-color:gray; */
+  cursor:pointer;
+  animation: scale-up-center 0.1s cubic-bezier(0, 0, 1, 1) both;
+  /* border: 10px  solid white; */
+}
+/* .menu-add-btn{
+  color: #ddd;
+} */
+
+@keyframes scale-up-center {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.3);
+  }
+}

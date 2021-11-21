@@ -1,0 +1,10 @@
+.post-page-container {
+  display: grid;
+}
+
+.post-page-container-texts{
+  grid-row-start: 0 ;
+  grid-row-end: 1;
+  grid-column-start: 0;
+  grid-column-end: 1;
+}

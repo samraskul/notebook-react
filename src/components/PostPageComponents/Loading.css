@@ -1,0 +1,81 @@
+.loading-body {
+  backdrop-filter: blur(.5px);
+  grid-row-start: 0 ;
+  grid-row-end: 1;
+  grid-column-start: 0;
+  grid-column-end: 1;
+  height: 100%;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+  width: 100%;
+ }
+ .spinner {
+   width: 10em;
+   height: 10em;
+   border-top: 1em solid #6da9f5;
+   border-right: 1em solid transparent;
+   border-radius: 50%;
+   margin: auto;
+   animation: spinner 0.3s linear infinite;
+ }
+ .head {
+   width: 1em;
+   height: 1em;
+   background-color: #6da9f5;
+   border-radius: 50%;
+   margin-left: 8.5em;
+   margin-top: 0.5em;
+ }
+ @keyframes spinner {
+   100% { transform: rotate(360deg) }
+ }
+
+ /* 
+ USAGE:
+
+ ==============================================
+
+  CSS:
+
+  <Loading/> parent class:
+  .post-page-container {
+    display: grid;
+  }
+
+  class after <Loading/>
+  .post-page-container-texts{
+    grid-row-start: 0 ;
+    grid-row-end: 1;
+    grid-column-start: 0;
+    grid-column-end: 1;
+  }
+
+  ==============================================
+
+  HTML:
+  <div class="post-page-container">
+    {loading ? <Loading /> : null}
+      <div class="post-page-container-texts">
+        hello world
+    </div
+  </div
+
+  ==============================================
+
+  React:
+  const [loading, setLoading] = useState(false);
+  const getData = ()=>{
+    setLoading(true);
+    get("/posts/" + params.id.toString()).then((data) => {
+      data = data.data.data;
+      setPosts(data);
+      setLoading(false);
+    });
+  }
+*/

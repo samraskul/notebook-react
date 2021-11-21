@@ -1,0 +1,269 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+/* Scrollbar-effect------- */
+.accordian::-webkit-scrollbar {
+  width: 5px;
+  height: 8px;
+}
+.accordian::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: #e4e4e4;
+}
+.accordian::-webkit-scrollbar-thumb {
+  background: #0089ff;
+  border-radius: 10px;
+  transition: 0.5s;
+}
+.accordian::-webkit-scrollbar-thumb:hover {
+  background: #d5b14c;
+  transition: 0.5s;
+}
+
+/* --------- */
+
+.accordian {
+  background: #fff;
+  width: calc(100% - 20px);
+  padding: 10px;
+  /* float: left; */
+  height: 100vh;
+  overflow-x: hidden;
+  user-select: none;
+}
+
+.accordian a {
+}
+
+.accordian i {
+  margin-right: 10px;
+}
+
+.accordian li {
+  list-style-type: none;
+}
+
+.accordian ul li a {
+  color: #9c9c9c;
+  text-decoration: none;
+  font-size: 15px;
+  display: block;
+  /* 	line-height: 34px; */
+  padding: 12px 15px;
+  /* transition: all 0.15s; */
+  border:1px solid white;
+  position: relative;
+  border-radius: 3px;
+  box-shadow: 0px 0px 1px gray;
+  opacity: 1;
+}
+
+/* @keyframes anima {
+  0% {
+            transform: translateY(-0px) translateX(-20px);
+            height: 20px;
+  }
+  100% {
+            transform: translateY(0px) translateX(0px);
+            height: 100%;
+  }
+} */
+
+@keyframes anima {
+  0% {
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+    -webkit-transform-origin: 0% 0%;
+    transform-origin: 0% 0%;
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transform-origin: 0% 0%;
+    transform-origin: 0% 0%;
+  }
+}
+
+.accordian > ul.show-dropdown > li.active > a,
+.accordian > ul > li > ul.show-dropdown > li.active > a,
+.accordian > ul > li > ul > li > ul.show-dropdown > li.active > a,
+.accordian > ul > li > ul > li > ul > li > ul.show-dropdown > li.active > a,
+.accordian
+  > ul
+  > li
+  > ul
+  > li
+  > ul
+  > li
+  > ul
+  > li
+  > ul.show-dropdown
+  > li.active
+  > a,
+.accordian
+  > ul
+  > li
+  > ul
+  > li
+  > ul
+  > li
+  > ul
+  > li
+  > ul
+  > li
+  > ul.show-dropdown
+  > li.active
+  > a {
+  background-color: #1976d2;
+  color: #ffffff;
+  box-shadow: 0px 1px 2px rgba(0, 137, 255, 0.2);
+  border: 1px #1976d2 solid;
+}
+
+.accordian > ul.show-dropdown > li > a:hover,
+.accordian > ul > li > ul.show-dropdown > li > a:hover,
+.accordian > ul > li > ul > li > ul.show-dropdown > li > a:hover,
+.accordian > ul > li > ul > li > ul > li > ul.show-dropdown > li > a:hover,
+.accordian
+  > ul
+  > li
+  > ul
+  > li
+  > ul
+  > li
+  > ul
+  > li
+  > ul.show-dropdown
+  > li
+  > a:hover,
+.accordian
+  > ul
+  > li
+  > ul
+  > li
+  > ul
+  > li
+  > ul
+  > li
+  > ul
+  > li
+  > ul.show-dropdown
+  > li
+  > a:hover {
+    /* background-image: linear-gradient(to right, #eb3941, #f15e64, #e14e53, #e2373f);  box-shadow: 0 5px 15px rgba(242, 97, 103, .4); */
+    /* -webkit-animation: animaHover 0.05s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+	        animation: animaHover 0.05s cubic-bezier(0.455, 0.030, 0.515, 0.955) both; */
+          animation: animaHover .2s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+
+  }
+
+@keyframes animaHover {
+  0% {
+    /* transform: scale(1); */
+  }
+
+  100%{
+    /* transform: scale(1); */
+    border: 1px black solid;
+    opacity: .90;
+  }
+}
+
+  
+.accordian > ul > li > ul,
+.accordian > ul > li > ul > li > ul,
+.accordian > ul > li > ul > li > ul > li > ul,
+.accordian > ul > li > ul > li > ul > li > ul > li > ul,
+.accordian > ul > li > ul > li > ul > li > ul > li > ul > li > ul {
+  display: none;
+}
+
+.accordian > ul > li.active > ul.show-dropdown,
+.accordian > ul > li > ul > li.active > ul.show-dropdown,
+.accordian > ul > li > ul > li > ul > li.active > ul.show-dropdown,
+.accordian > ul > li > ul > li > ul > li > ul > li.active > ul.show-dropdown,
+.accordian
+  > ul
+  > li
+  > ul
+  > li
+  > ul
+  > li
+  > ul
+  > li
+  > ul
+  > li.active
+  > ul.show-dropdown {
+  display: block;
+}
+
+.accordian > ul > li > ul,
+.accordian > ul > li > ul > li > ul,
+.accordian > ul > li > ul > li > ul > li > ul,
+.accordian > ul > li > ul > li > ul > li > ul > li > ul,
+.accordian > ul > li > ul > li > ul > li > ul > li > ul > li > ul {
+  padding-left: 20px;
+  animation: anima 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  /* -webkit-animation: anima 0.15s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  animation: anima 0.15s cubic-bezier(0.390, 0.575, 0.565, 1.000) both; */
+}
+
+/* .accordian a:not(:only-child):after {
+  content: "\f105";
+  position: absolute;
+  right: 20px;
+  top: 14px;
+  font-size: 15px;
+  font-family: "Font Awesome 5 Free";
+  display: inline-block;
+  padding-right: 3px;
+  vertical-align: middle;
+  font-weight: 900;
+  transition: 0.5s;
+}
+
+.accordian .active > a:not(:only-child):after {
+  transform: rotate(90deg);
+} */
+
+
+.container-sidebar{
+  margin: 8px;
+}
+
+.input-label {
+  color: #8597a3;
+  position: absolute;
+  top: 1.5rem;
+  transition: 0.25s ease;
+}
+
+.input-sidebar {
+  border: 0;
+  z-index: 1;
+  background-color: transparent;
+  border-bottom: 2px solid #eee;
+  width: 100%;
+  outline: none;
+}
+.input-sidebar:focus, .input-sidebar:valid {
+  outline: 0;
+  border-bottom-color: #9C27B0;
+}
+
+.btn-sidebar {
+  cursor: pointer;
+  padding: 4px;
+  background-color: #9C27B0;
+  border-radius: 6px;
+  color: #FFF;
+  border: 0;
+  margin: 8px 0 ;
+
+}
+.btn-sidebar:focus {
+  outline: 0;
+}
