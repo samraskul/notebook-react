@@ -14,7 +14,7 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import MailIcon from "@mui/icons-material/Mail";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
-import {Notification} from '../../Notification/Notification';
+import { Notification } from "../../Notification/Notification";
 
 import { Link, Redirect } from "react-router-dom";
 
@@ -89,8 +89,8 @@ export default function PrimarySearchAppBar(props) {
     localStorage.removeItem("userId");
     localStorage.removeItem("userEmail");
     localStorage.removeItem("userType");
-    console.log('logout', localStorage.getItem('userToken'));
-    Notification('You logged out successfully');
+    console.log("logout", localStorage.getItem("userToken"));
+    Notification("You logged out successfully");
   };
 
   const menuId = "primary-search-account-menu";
@@ -179,12 +179,14 @@ export default function PrimarySearchAppBar(props) {
             <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
           </Link>
           <Link className="link-button" to="/logout">
-            <MenuItem 
+            <MenuItem
               onClick={() => {
                 handleMenuClose();
                 logoutHandler();
               }}
-            >Logout</MenuItem>
+            >
+              Logout
+            </MenuItem>
           </Link>
         </div>
       )}
@@ -220,13 +222,12 @@ export default function PrimarySearchAppBar(props) {
     </Menu>
   );
 
-  const [temp, setTemp ] = React.useState('');
-  const setTempHandler = ()=>{
-    setTimeout(()=>{
+  const [temp, setTemp] = React.useState("");
+  const setTempHandler = () => {
+    setTimeout(() => {
       setTemp(localStorage.getItem("userEmail"));
     }, 1000);
   };
-
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -239,7 +240,7 @@ export default function PrimarySearchAppBar(props) {
             aria-label="open drawer"
             sx={{ mr: 2 }}
             onClick={() => {
-              props.setHideSidebar(!props.hideSidebar);
+              //props.setHideSidebar(!props.hideSidebar);
               props.sidebarTransitionStyleHandler();
             }}
           >
@@ -255,9 +256,9 @@ export default function PrimarySearchAppBar(props) {
           </Typography>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
-          {setTempHandler()}  
-            
-          { localStorage.getItem("userToken") !== null ? (
+            {setTempHandler()}
+
+            {localStorage.getItem("userToken") !== null ? (
               <IconButton
                 size="large"
                 aria-label="show more"
@@ -266,9 +267,11 @@ export default function PrimarySearchAppBar(props) {
                 onClick={handleMobileMenuOpen}
                 color="inherit"
               >
-                <span style={{fontSize:"14px"}}>{localStorage.getItem("userEmail")}</span>
+                <span style={{ fontSize: "14px" }}>
+                  {localStorage.getItem("userEmail")}
+                </span>
               </IconButton>
-            ) : null }
+            ) : null}
             <IconButton
               size="large"
               edge="end"
@@ -291,7 +294,9 @@ export default function PrimarySearchAppBar(props) {
                 onClick={handleMobileMenuOpen}
                 color="inherit"
               >
-                <span style={{fontSize:"12px"}}>{localStorage.getItem("userEmail")}</span>
+                <span style={{ fontSize: "12px" }}>
+                  {localStorage.getItem("userEmail")}
+                </span>
               </IconButton>
             ) : null}
             <IconButton
