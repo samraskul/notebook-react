@@ -1,12 +1,12 @@
 import Sidebar from "./Sidebar/Sidebar";
 import "./Admin.css";
 import Page from "../../Pages/Page";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Navbar from "./Navbar/Navbar";
 import Slide from "@mui/material/Slide";
 
 const Admin = () => {
-  const [userLoggedIn, setUserLoggedIn] = useState('admin default'); // never used, just for rerender and redirect!
+  const [userLoggedIn, setUserLoggedIn] = useState("admin default"); // never used, just for rerender and redirect!
 
   const [adminActiveMenu, setAdminActiveMenu] = useState({});
   const adminActiveMenuHandler = (activeMenu) => {
@@ -14,20 +14,36 @@ const Admin = () => {
     setAdminActiveMenu(activeMenu);
   };
 
-  const [hideSidebar, setHideSidebar] = useState(false);
+  // let sidebarTimeout = 0;
+  const [width, setWidth] = useState(window.innerWidth);
+  function handleWindowSizeChange() {
+    setWidth(window.innerWidth);
+  }
+  let sidebarTimeout = 100;
+  useEffect(() => {
+    sidebarTimeout = 0;
+    handleWindowSizeChange();
+    sidebarTransitionStyleHandler();
+  }, []);
+  let isMobile = width <= 768 ? true : false;
+
+  const [hideSidebar, setHideSidebar] = useState(isMobile);
 
   const [sidebarTransitionStyle, setSidebarTransitionStyle] = useState({
     gridTemplateColumns: "280px 1fr"
   });
 
   const sidebarTransitionStyleHandler = () => {
-    if (!hideSidebar) {
+    console.log("runned in useEffect");
+    setHideSidebar(!hideSidebar);
+    if (hideSidebar) {
       setTimeout(() => {
         setSidebarTransitionStyle({ gridTemplateColumns: "0 1fr" });
-      }, 100);
+      }, sidebarTimeout);
     } else {
       setSidebarTransitionStyle({ gridTemplateColumns: "280px 1fr" });
     }
+    // sidebarTimeout = 100;
   };
 
   return (
@@ -44,10 +60,10 @@ const Admin = () => {
         />
       </div>
       <div className="admin-container-sidebar">
-        <Slide direction="right" in={!hideSidebar} mountOnEnter unmountOnExit>
+        <Slide direction="right" in={hideSidebar} mountOnEnter unmountOnExit>
           <div>
-            <Sidebar 
-              adminActiveMenuHandler={adminActiveMenuHandler} 
+            <Sidebar
+              adminActiveMenuHandler={adminActiveMenuHandler}
               userLoggedIn={userLoggedIn}
               setUserLoggedIn={setUserLoggedIn}
             />
