@@ -2,8 +2,8 @@ import axios from "axios";
 
 // export const apiURL = "https://hx17e.ciroue.com/api";
 // export const apiURL = "https://39duw.ciroue.com/api";
-export const apiURL = "http://laravel-notebook.test/api";
-// export const apiURL = "https://apinotebook.nordicstandard.net/api";
+//export const apiURL = "http://laravel-notebook.test/api";
+export const apiURL = "https://apinotebook.nordicstandard.net/api";
 
 const initAxios = () => {
   return axios.create({
@@ -32,4 +32,4 @@ export const destroy = (url, params = null, user_id = null) => {
   return axios.delete(url, params);
 };
 
-export const redirectAfterLogin = '/dashboard';
+export const redirectAfterLogin = "/dashboard";
