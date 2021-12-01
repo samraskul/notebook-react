@@ -28,7 +28,7 @@
   width: calc(100% - 20px);
   padding: 10px;
   /* float: left; */
-  height: 100vh;
+  height: calc(100vh - 85px);
   overflow-x: hidden;
   user-select: none;
 }

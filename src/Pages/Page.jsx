@@ -5,6 +5,7 @@ import RegisterPage from "./RegisterPage";
 import ForgotPasswordPage from "./ForgotPasswordPage";
 import ProfilePage from "./ProfilePage";
 import PostPage from "./PostPage";
+import Home from "./Home";
 import LogoutPage from "./LogoutPage";
 import { get } from '../api/backend';
 import {Notification} from '../components/Notification/Notification';
@@ -33,13 +34,13 @@ const PageLayout = (props) => {
     <div
       style={{
         backgroundColor: "#eee",
-        height: "100vh"
+        height: "calc(100vh - 65px)"
       }}
     >
       <div style={{ padding: "10px" }}>
         <Switch>
           <Route exact path="/">
-            <div>Welcome to NoteBook</div>
+            <Home/>
           </Route>
 
           <Route path="/dashboard">
