@@ -4,11 +4,13 @@ import { useLocation } from "react-router-dom";
 
 const PageTextEditor = (props) => {
   const [showEditor, setShowEditor] = useState(false);
+  const location = useLocation();
+  console.log("locaton", location, location.search);
 
   return (
     <div
       onClick={() => {
-        if((localStorage.getItem('userToken')) && (!useLocation().search.length)){
+        if (localStorage.getItem("userToken") && location.search === "") {
           showEditor ? setShowEditor(false) : setShowEditor(true);
         }
       }}
