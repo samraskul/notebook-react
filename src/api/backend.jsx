@@ -2,7 +2,7 @@ import axios from "axios";
 
 // export const apiURL = "https://hx17e.ciroue.com/api";
 // export const apiURL = "https://39duw.ciroue.com/api";
-//export const apiURL = "http://laravel-notebook.test/api";
+// export const apiURL = "http://laravel-notebook.test/api";
 export const apiURL = "https://apinotebook.nordicstandard.net/api";
 
 const initAxios = () => {
@@ -12,7 +12,7 @@ const initAxios = () => {
       "Content-Type": "application/json",
       Authorization: "Bearer " + localStorage.getItem("userToken")
     },
-    timeout: 6000
+    timeout: 4000
   });
 };
 

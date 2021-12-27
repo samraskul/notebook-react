@@ -49,29 +49,21 @@ const EditMenuOrPageForm = (props) => {
           );
         })}
       </select>
-      {/* <input
-        type="text"
-        name="icon"
-        placeholder="Icon (ex: fas fa-sticky-note)"
-        value={editMenuIconValue}
-        onChange={editMenuIconChangeHandler}
-      /> */}
       <input
         type="text"
         name="order"
         placeholder="Order"
         value={editMenuOrderValue}
         onChange={temp}
-        // onChange={editMenuOrderChangeHandler}
         style={{display:"none"}}
       />
       
       <select value={editMenuOrderValue} className="input-sidebar" onChange={editMenuOrderChangeHandler}>
-        <option value="3000"  >Top</option>
-        <option value="2000"  >Top - Middle</option>
+        <option value="250"  >Top</option>
+        <option value="500"  >Top - Middle</option>
         <option value="1000"  >Middle</option>
-        <option value="500"  >Bottom - Middle</option>
-        <option value="250"  >Bottom</option>
+        <option value="2000"  >Bottom - Middle</option>
+        <option value="3000"  >Bottom</option>
       </select>
 
       <input type="submit" className="btn-sidebar" value="save" />

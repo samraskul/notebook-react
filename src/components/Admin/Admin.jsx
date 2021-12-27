@@ -4,6 +4,8 @@ import Page from "../../Pages/Page";
 import { useState, useEffect } from "react";
 import Navbar from "./Navbar/Navbar";
 import Slide from "@mui/material/Slide";
+import {get, apiURL} from '../../api/backend';
+import {Notification} from '../Notification/Notification';
 
 const Admin = () => {
   const [userLoggedIn, setUserLoggedIn] = useState("admin default"); // never used, just for rerender and redirect!
@@ -21,6 +23,26 @@ const Admin = () => {
   }
   let sidebarTimeout = 100;
   useEffect(() => {
+    
+    console.log('1adskfjlaj');
+    
+
+    get(apiURL + "/check")
+    .then((data) => {
+      //console.log('sslaksjdflkajsdlf', localStorage.getItem("userToken").length > 0);
+    })
+    .catch((e) =>{
+      console.log(e);
+      if(localStorage.getItem("userToken").length > 0){
+        localStorage.removeItem("userToken");
+        localStorage.removeItem("userId");
+        localStorage.removeItem("userEmail");
+        localStorage.removeItem("userType");
+        Notification('Your cookie has wrong token, please log in again', 'danger', 'Error');
+      }
+      console.log('e', 'there is an error while you tried to logged in');
+    });
+   
     sidebarTimeout = 0;
     handleWindowSizeChange();
     sidebarTransitionStyleHandler();

@@ -34,7 +34,6 @@ const PageLayout = (props) => {
     <div
       style={{
         backgroundColor: "#eee",
-        height: "calc(100vh - 65px)"
       }}
     >
       <div style={{ padding: "10px" }}>
