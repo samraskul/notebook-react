@@ -66,6 +66,7 @@ const PostPage = (props) => {
       // console.log("axios post method data", data);
       setPosts(data.data.data);
       console.log("saved successfully");
+      Notification('Saved');
     });
   };
 

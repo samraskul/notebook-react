@@ -26,11 +26,18 @@
 .accordian {
   background: #fff;
   width: calc(100% - 20px);
+  width: 270px;
   padding: 10px;
   /* float: left; */
-  height: calc(100vh - 85px);
-  overflow-x: hidden;
+  min-height: calc(100vh - 85px);
+  /* height: 100vh; */
+  /* overflow-x: hidden;
+  overflow-y: auto; */
   user-select: none;
+  /* position: -webk?it-sticky; */
+  /* position: sticky;
+  top: 65px; */
+  /* bottom: 0; */
 }
 
 .accordian a {
