@@ -5,7 +5,7 @@ import { useLocation } from "react-router-dom";
 const PageTextEditor = (props) => {
   const [showEditor, setShowEditor] = useState(false);
   const location = useLocation();
-  console.log("locaton", location, location.search);
+  // console.log("locaton", location, location.search);
 
   return (
     <div

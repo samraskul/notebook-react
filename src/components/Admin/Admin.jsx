@@ -33,7 +33,7 @@ const Admin = () => {
     })
     .catch((e) =>{
       console.log(e);
-      if(localStorage.getItem("userToken").length > 0){
+      if(localStorage.getItem("userToken")){
         localStorage.removeItem("userToken");
         localStorage.removeItem("userId");
         localStorage.removeItem("userEmail");
